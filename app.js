@@ -19,3 +19,28 @@ const objB = {
 city_name: "Delhi"
 }
 console.log(objA == objB) // false, as this is comparing the object reference not their values
+
+// Event loop
+const promise1 = new Promise((resolve,reject)=> {
+setTimeout(()=>{
+resolve("Yes!")
+}, 1000)
+reject(Error("No! 1"))
+})
+
+console.log("hello")
+setTimeout(()=>{
+console.log("Timeout 1")
+}, 0)
+console.log("hello 1")
+promise1.catch((err)=> {
+console.log(err.message)
+})
+console.log("hello 2")
+
+Output:
+"hello"
+"hello 1"
+"hello 2"
+"No! 1"
+"Timeout 1"
